@@ -14,13 +14,20 @@
     clear: both;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     color: #555;
     font-family: Open Sans;
     font-size: 16px;
     position: relative;
-    height: 100vh;
+    height: 100%;
     font-weight: 400;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
 }
 
 .right { float: right; }
@@ -32,11 +39,23 @@ body {
 **********************************************/
 
 .top {
-    height: 40vh;
+    min-height: 300px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
     background-size: cover;
     background-position: center;
     position: relative;
+}
+
+#wrapper {
+    min-height: 100%;
+    /* padding-bottom: 100%; */
+    overflow:auto;
+}
+
+#wrapper:after {
+    content: "";
+    display: block;
+    height: 100%;
 }
 
 .budget {
@@ -119,6 +138,14 @@ body {
     background-color: #f7f7f7;
 }
 
+.bottom {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    /* height: auto !important; */
+}
+
 .add__container {
     margin: 0 auto;
     text-align: center;
@@ -149,7 +176,7 @@ body {
     transition: border 0.3s;
 }
 
-.add__description { width: 400px;}
+.add__description { width: 100%; max-width: 400px;}
 .add__value { width: 100px;}
 
 .add__btn {
@@ -177,19 +204,31 @@ body {
 
 /***** LISTS *****/
 .container {
-    width: 1000px;
+    width: 100%;
     margin: 60px auto;
+    min-height: 100%;
+    height: 100%;
 }
 
 .income {
-    float: left;
-    width: 475px;
+    display: inline-block;
+    /* float: left; */
+    width: 300px;
     margin-right: 50px;
+    min-width: 45%;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .expenses {
-    float: left;
-    width: 475px;
+    /* float: right; */
+    display: inline-block;
+    width: 300px;
+    min-width: 45%;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 10px;
 }
 
 h2 {
@@ -271,6 +310,16 @@ h2 {
     cursor: pointer;
     color: #FF5049;
 
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #45BCB4;
+    color: white;
+    text-align: center;
 }
 
 .unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
